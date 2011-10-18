@@ -1,0 +1,12 @@
+d:\users\wayan\documents\visual studio 2010\Projects\OP\OP\OP\bin\x86\Debug\OP.exe
+d:\users\wayan\documents\visual studio 2010\Projects\OP\OP\OP\bin\x86\Debug\OP.pdb
+d:\users\wayan\documents\visual studio 2010\Projects\OP\OP\OP\obj\x86\Debug\ResolveAssemblyReference.cache
+d:\users\wayan\documents\visual studio 2010\Projects\OP\OP\OP\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+d:\users\wayan\documents\visual studio 2010\Projects\OP\OP\OP\obj\x86\Debug\OP.exe
+d:\users\wayan\documents\visual studio 2010\Projects\OP\OP\OP\obj\x86\Debug\OP.pdb
+J:\GitRepo\Operation-Planlos\OP\OP\OP\bin\x86\Debug\OP.exe
+J:\GitRepo\Operation-Planlos\OP\OP\OP\bin\x86\Debug\OP.pdb
+J:\GitRepo\Operation-Planlos\OP\OP\OP\obj\x86\Debug\ResolveAssemblyReference.cache
+J:\GitRepo\Operation-Planlos\OP\OP\OP\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+J:\GitRepo\Operation-Planlos\OP\OP\OP\obj\x86\Debug\OP.exe
+J:\GitRepo\Operation-Planlos\OP\OP\OP\obj\x86\Debug\OP.pdb
