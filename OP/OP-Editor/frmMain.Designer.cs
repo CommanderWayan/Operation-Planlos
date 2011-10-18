@@ -1,6 +1,6 @@
 ﻿namespace OP_Editor
 {
-	partial class Form1
+	partial class frmMain
 	{
 		/// <summary>
 		/// Erforderliche Designervariable.
