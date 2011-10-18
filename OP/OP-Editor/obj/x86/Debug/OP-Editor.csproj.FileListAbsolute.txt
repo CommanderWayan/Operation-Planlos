@@ -1,8 +1,0 @@
-J:\GitRepo\Operation-Planlos\OP\OP-Editor\bin\Debug\OP-Editor.exe
-J:\GitRepo\Operation-Planlos\OP\OP-Editor\bin\Debug\OP-Editor.pdb
-J:\GitRepo\Operation-Planlos\OP\OP-Editor\obj\x86\Debug\ResolveAssemblyReference.cache
-J:\GitRepo\Operation-Planlos\OP\OP-Editor\obj\x86\Debug\OP_Editor.Properties.Resources.resources
-J:\GitRepo\Operation-Planlos\OP\OP-Editor\obj\x86\Debug\GenerateResource.read.1.tlog
-J:\GitRepo\Operation-Planlos\OP\OP-Editor\obj\x86\Debug\GenerateResource.write.1.tlog
-J:\GitRepo\Operation-Planlos\OP\OP-Editor\obj\x86\Debug\OP-Editor.exe
-J:\GitRepo\Operation-Planlos\OP\OP-Editor\obj\x86\Debug\OP-Editor.pdb

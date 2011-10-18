@@ -1,2 +1,0 @@
-d:\users\wayan\documents\visual studio 2010\Projects\OP\OP\OPContent\obj\x86\Debug\ResolveAssemblyReference.cache
-J:\GitRepo\Operation-Planlos\OP\OP\OPContent\obj\x86\Debug\ResolveAssemblyReference.cache
