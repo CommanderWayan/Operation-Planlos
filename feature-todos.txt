@@ -7,3 +7,8 @@ waffen
 waffenupgrades
 schiffe
 rpg-system? was soll es beeinflussen?
+
+
+usefull linx
+
+http://www.david-gouveia.com/2d-camera-with-parallax-scrolling-in-xna/
