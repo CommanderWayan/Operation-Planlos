@@ -9,14 +9,16 @@ using System.Windows.Forms;
 using System.IO;
 using OP_Editor.Textures;
 using OP_Editor.ContentReaders;
+using OP_Editor.Viewers;
 
 namespace OP_Editor
 {
 	public partial class frmMain : Form
 	{
+		EditorTilePainter TilePainter;
 		public frmMain()
 		{
-			InitializeComponent();
+			InitializeComponent();			
 		}
 
         private void addTexturesheetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -26,12 +28,21 @@ namespace OP_Editor
             {
                 addTextureSheet(new FileInfo(openFileDialogTextureSheet.FileName));
             }
+			if (TilePainter != null)
+				TilePainter.DrawTiles();
         }
 
         private void addTextureSheet(FileInfo SheetFile)
         {
             TextureSheetReader tr = new TextureSheetReader();
-            tr.loadTextureSheet(SheetFile);
+            TextureSheet ts = tr.loadTextureSheet(SheetFile);
+			TilePainter = new EditorTilePainter(this.panelEditorTiles, ts);
         }
+
+		private void RefreshPicBoxTiles(object sender, PaintEventArgs e)
+		{
+			if(TilePainter != null)
+				TilePainter.DrawTiles();
+		}
 	}
 }

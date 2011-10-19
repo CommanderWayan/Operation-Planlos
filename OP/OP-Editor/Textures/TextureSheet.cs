@@ -11,6 +11,9 @@ namespace OP_Editor.Textures
         int _spriteWidth;
         int _spriteHeight;
         Image[,] _textureSheet;
+		int _xTiles;
+		int _yTiles;
+		int _tiles;
 
         public TextureSheet(int SpriteWidth, int SpriteHeight, Image Sheet)
         {
@@ -20,16 +23,27 @@ namespace OP_Editor.Textures
         }
         private void buildArray(Image sheet)
         {
-            int xTiles = sheet.Width / _spriteWidth;
-            int yTiles = sheet.Height / _spriteHeight;
-            _textureSheet = new Image[xTiles,yTiles];
-            for (int x = 0; x < xTiles; x++)
+            _xTiles = sheet.Width / _spriteWidth;
+            _yTiles = sheet.Height / _spriteHeight;
+			_tiles = _xTiles * _yTiles;
+            _textureSheet = new Image[_xTiles,_yTiles];
+            for (int x = 0; x < _xTiles; x++)
             {
-                for (int y = 0; y < yTiles; y++)
+                for (int y = 0; y < _yTiles; y++)
                 {
                     _textureSheet[x, y] = (sheet as Bitmap).Clone(new Rectangle(x*_spriteWidth, y*_spriteHeight, _spriteWidth, _spriteHeight), System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
                 }
             }
         }
-    }
+		public int Tiles { get { return this._tiles; } }
+		public int XTiles { get { return this._xTiles; } }
+		public int YTiles { get { return this._yTiles; } }
+		public int TileWidth { get { return this._spriteWidth; } }
+		public int TileHeight { get { return this._spriteHeight; } }
+		public Image getSpriteAtPosition(int X, int Y)
+		{
+			return this._textureSheet[X, Y];
+		}
+		
+	}
 }

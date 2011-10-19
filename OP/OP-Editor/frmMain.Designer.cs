@@ -28,98 +28,135 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addTexturesheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileDialogTextureSheet = new System.Windows.Forms.OpenFileDialog();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(25, 73);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(540, 494);
-            this.panel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(530, 484);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.newMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.addTexturesheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+			this.openFileDialogTextureSheet = new System.Windows.Forms.OpenFileDialog();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.panelEditorTiles = new System.Windows.Forms.Panel();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.menuStrip1.SuspendLayout();
+			this.groupBox1.SuspendLayout();
+			this.panel2.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// panel1
+			// 
+			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel1.Controls.Add(this.pictureBox1);
+			this.panel1.Location = new System.Drawing.Point(25, 73);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(540, 494);
+			this.panel1.TabIndex = 0;
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.BackColor = System.Drawing.Color.White;
+			this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(530, 484);
+			this.pictureBox1.TabIndex = 0;
+			this.pictureBox1.TabStop = false;
+			// 
+			// menuStrip1
+			// 
+			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1209, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1209, 25);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.Size = new System.Drawing.Size(1209, 24);
+			this.menuStrip1.TabIndex = 1;
+			this.menuStrip1.Text = "menuStrip1";
+			// 
+			// toolStripMenuItem1
+			// 
+			this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newMapToolStripMenuItem,
             this.addTexturesheetToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(35, 20);
-            this.toolStripMenuItem1.Text = "File";
-            // 
-            // addTexturesheetToolStripMenuItem
-            // 
-            this.addTexturesheetToolStripMenuItem.Name = "addTexturesheetToolStripMenuItem";
-            this.addTexturesheetToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.addTexturesheetToolStripMenuItem.Text = "Add Texturesheet";
-            this.addTexturesheetToolStripMenuItem.Click += new System.EventHandler(this.addTexturesheetToolStripMenuItem_Click);
-            // 
-            // newMapToolStripMenuItem
-            // 
-            this.newMapToolStripMenuItem.Name = "newMapToolStripMenuItem";
-            this.newMapToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.newMapToolStripMenuItem.Text = "New Map";
-            // 
-            // openFileDialogTextureSheet
-            // 
-            this.openFileDialogTextureSheet.Filter = "PNG-Dateien|*.png";
-            // 
-            // frmMain
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1209, 620);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "frmMain";
-            this.Text = "Form1";
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+			this.toolStripMenuItem1.Text = "File";
+			// 
+			// newMapToolStripMenuItem
+			// 
+			this.newMapToolStripMenuItem.Name = "newMapToolStripMenuItem";
+			this.newMapToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+			this.newMapToolStripMenuItem.Text = "New Map";
+			// 
+			// addTexturesheetToolStripMenuItem
+			// 
+			this.addTexturesheetToolStripMenuItem.Name = "addTexturesheetToolStripMenuItem";
+			this.addTexturesheetToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+			this.addTexturesheetToolStripMenuItem.Text = "Add Texturesheet";
+			this.addTexturesheetToolStripMenuItem.Click += new System.EventHandler(this.addTexturesheetToolStripMenuItem_Click);
+			// 
+			// toolStrip1
+			// 
+			this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+			this.toolStrip1.Name = "toolStrip1";
+			this.toolStrip1.Size = new System.Drawing.Size(1209, 25);
+			this.toolStrip1.TabIndex = 2;
+			this.toolStrip1.Text = "toolStrip1";
+			// 
+			// openFileDialogTextureSheet
+			// 
+			this.openFileDialogTextureSheet.Filter = "PNG-Dateien|*.png";
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.panel2);
+			this.groupBox1.Location = new System.Drawing.Point(681, 12);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(516, 596);
+			this.groupBox1.TabIndex = 3;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "groupBox1";
+			// 
+			// panelEditorTiles
+			// 
+			this.panelEditorTiles.AutoScroll = true;
+			this.panelEditorTiles.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panelEditorTiles.Location = new System.Drawing.Point(3, 3);
+			this.panelEditorTiles.Name = "panelEditorTiles";
+			this.panelEditorTiles.Size = new System.Drawing.Size(498, 568);
+			this.panelEditorTiles.TabIndex = 1;
+			this.panelEditorTiles.Paint += new System.Windows.Forms.PaintEventHandler(this.RefreshPicBoxTiles);
+			// 
+			// panel2
+			// 
+			this.panel2.AutoScroll = true;
+			this.panel2.Controls.Add(this.panelEditorTiles);
+			this.panel2.Location = new System.Drawing.Point(6, 19);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(504, 577);
+			this.panel2.TabIndex = 2;
+			// 
+			// frmMain
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(1209, 620);
+			this.Controls.Add(this.groupBox1);
+			this.Controls.Add(this.toolStrip1);
+			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.menuStrip1);
+			this.MainMenuStrip = this.menuStrip1;
+			this.Name = "frmMain";
+			this.Text = "Form1";
+			this.panel1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.menuStrip1.ResumeLayout(false);
+			this.menuStrip1.PerformLayout();
+			this.groupBox1.ResumeLayout(false);
+			this.panel2.ResumeLayout(false);
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -133,6 +170,9 @@
         private System.Windows.Forms.ToolStripMenuItem addTexturesheetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newMapToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialogTextureSheet;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.Panel panelEditorTiles;
+		private System.Windows.Forms.Panel panel2;
 	}
 }
 
