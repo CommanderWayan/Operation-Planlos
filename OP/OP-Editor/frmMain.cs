@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
+using OP_Editor.Textures;
+using OP_Editor.ContentReaders;
 
 namespace OP_Editor
 {
@@ -15,5 +18,20 @@ namespace OP_Editor
 		{
 			InitializeComponent();
 		}
+
+        private void addTexturesheetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialogTextureSheet.InitialDirectory = Application.ExecutablePath;
+            if (openFileDialogTextureSheet.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                addTextureSheet(new FileInfo(openFileDialogTextureSheet.FileName));
+            }
+        }
+
+        private void addTextureSheet(FileInfo SheetFile)
+        {
+            TextureSheetReader tr = new TextureSheetReader();
+            tr.loadTextureSheet(SheetFile);
+        }
 	}
 }
