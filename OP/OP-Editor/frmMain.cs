@@ -9,13 +9,12 @@ using System.Windows.Forms;
 using System.IO;
 using OP_Editor.Textures;
 using OP_Editor.ContentReaders;
-using OP_Editor.Viewers;
+
 
 namespace OP_Editor
 {
 	public partial class frmMain : Form
 	{
-		EditorTilePainter TilePainter;
 		public frmMain()
 		{
 			InitializeComponent();			
@@ -27,22 +26,18 @@ namespace OP_Editor
             if (openFileDialogTextureSheet.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 addTextureSheet(new FileInfo(openFileDialogTextureSheet.FileName));
-            }
-			if (TilePainter != null)
-				TilePainter.DrawTiles();
+            }			
         }
 
         private void addTextureSheet(FileInfo SheetFile)
         {
             TextureSheetReader tr = new TextureSheetReader();
-            TextureSheet ts = tr.loadTextureSheet(SheetFile);
-			TilePainter = new EditorTilePainter(this.panelEditorTiles, ts);
+            TextureSheet ts = tr.loadTextureSheet(SheetFile);			
         }
 
-		private void RefreshPicBoxTiles(object sender, PaintEventArgs e)
-		{
-			if(TilePainter != null)
-				TilePainter.DrawTiles();
-		}
+        private void RefreshPicBoxTiles(object sender, PaintEventArgs e)
+        {
+            
+        }
 	}
 }

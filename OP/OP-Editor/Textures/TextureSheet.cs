@@ -21,6 +21,12 @@ namespace OP_Editor.Textures
             this._spriteWidth = SpriteWidth;
             buildArray(Sheet);
         }
+        public int Tiles { get { return this._tiles; } }
+        public int XTiles { get { return this._xTiles; } }
+        public int YTiles { get { return this._yTiles; } }
+        public int TileWidth { get { return this._spriteWidth; } }
+        public int TileHeight { get { return this._spriteHeight; } }        
+        public Image this[int X, int Y] { get { return this._textureSheet[X, Y]; } }
         private void buildArray(Image sheet)
         {
             _xTiles = sheet.Width / _spriteWidth;
@@ -35,15 +41,7 @@ namespace OP_Editor.Textures
                 }
             }
         }
-		public int Tiles { get { return this._tiles; } }
-		public int XTiles { get { return this._xTiles; } }
-		public int YTiles { get { return this._yTiles; } }
-		public int TileWidth { get { return this._spriteWidth; } }
-		public int TileHeight { get { return this._spriteHeight; } }
-		public Image getSpriteAtPosition(int X, int Y)
-		{
-			return this._textureSheet[X, Y];
-		}
+		
 		
 	}
 }
