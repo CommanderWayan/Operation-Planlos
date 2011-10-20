@@ -86,14 +86,14 @@ namespace OP_Editor.Components
             {
                 hScrollBar.Enabled = true;
                 hScrollBar.Minimum = 0;
-                hScrollBar.Maximum = _textureSheet.XTiles - columns;
+                hScrollBar.Maximum = _textureSheet.XTiles - columns / 2; //check if wirklich so /2
                 hScrollBar.Value = 0;                
             }
             if (rows < _textureSheet.YTiles) //reicht nicht von der Höhe
             {
                 vScrollBar.Enabled = true;
                 vScrollBar.Minimum = 0;
-                vScrollBar.Maximum = _textureSheet.YTiles - rows;
+                vScrollBar.Maximum = _textureSheet.YTiles - rows / 2 ; //check if wirklich so /2
                 vScrollBar.Value = 0;
             }
 			PaintAll();
@@ -109,7 +109,7 @@ namespace OP_Editor.Components
         {
             vScrollBar.Height = Height;
             hScrollBar.Width = Width;
-            _browserHeight = Height - hScrollBar.Width;
+            _browserHeight = Height - hScrollBar.Height;
             _browserWidth = Width - vScrollBar.Width;            
         }
         private void TileBrowser_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
@@ -132,8 +132,8 @@ namespace OP_Editor.Components
                 for (int y = 0; y < _textureSheet.YTiles; y++)
                 {					
 					gfx.DrawImageUnscaledAndClipped(_textureSheet[x, y],
-													new Rectangle(x * _textureSheet.TileWidth + vScrollBar.Width,
-																	y * _textureSheet.TileHeight + hScrollBar.Height,
+													new Rectangle(x * _textureSheet.TileWidth + vScrollBar.Width - hScrollBar.Value * _textureSheet.TileWidth,
+																	y * _textureSheet.TileHeight + hScrollBar.Height - vScrollBar.Value * _textureSheet.TileHeight,
 																	_textureSheet.TileWidth,
 																	_textureSheet.TileHeight)
 													);
@@ -150,8 +150,8 @@ namespace OP_Editor.Components
                 return;
             if (e.Button == MouseButtons.Left)
             {
-				_selectedTile.X = (e.X - vScrollBar.Width) / _textureSheet.TileWidth;
-				_selectedTile.Y = (e.Y - hScrollBar.Height) / _textureSheet.TileHeight;
+				_selectedTile.X = (e.X - vScrollBar.Width) / _textureSheet.TileWidth + hScrollBar.Value;
+				_selectedTile.Y = (e.Y - hScrollBar.Height) / _textureSheet.TileHeight + vScrollBar.Value;
 				Console.WriteLine("SEL: " + _selectedTile.ToString());
             }
             PaintAll();
