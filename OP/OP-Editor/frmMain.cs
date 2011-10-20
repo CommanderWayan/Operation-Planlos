@@ -17,7 +17,8 @@ namespace OP_Editor
 	{
 		public frmMain()
 		{
-			InitializeComponent();			
+			InitializeComponent();
+			this.DoubleBuffered = true;
 		}
 
         private void addTexturesheetToolStripMenuItem_Click(object sender, EventArgs e)
