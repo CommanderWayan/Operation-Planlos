@@ -32,12 +32,8 @@ namespace OP_Editor
         private void addTextureSheet(FileInfo SheetFile)
         {
             TextureSheetReader tr = new TextureSheetReader();
-            TextureSheet ts = tr.loadTextureSheet(SheetFile);			
-        }
-
-        private void RefreshPicBoxTiles(object sender, PaintEventArgs e)
-        {
-            
-        }
+            TextureSheet ts = tr.loadTextureSheet(SheetFile);
+            tileBrowser1.setTextureSheet(ts);
+        }                
 	}
 }

@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace OP_Editor.Textures
 {    
-    class TextureSheet
+    public class TextureSheet
     {
         int _spriteWidth;
         int _spriteHeight;
@@ -27,6 +27,7 @@ namespace OP_Editor.Textures
         public int TileWidth { get { return this._spriteWidth; } }
         public int TileHeight { get { return this._spriteHeight; } }        
         public Image this[int X, int Y] { get { return this._textureSheet[X, Y]; } }
+
         private void buildArray(Image sheet)
         {
             _xTiles = sheet.Width / _spriteWidth;

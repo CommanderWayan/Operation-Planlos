@@ -37,14 +37,11 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.openFileDialogTextureSheet = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBoxEditorTiles = new System.Windows.Forms.PictureBox();
+            this.tileBrowser1 = new OP_Editor.Components.TileBrowser();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEditorTiles)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -111,7 +108,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.Controls.Add(this.tileBrowser1);
             this.groupBox1.Location = new System.Drawing.Point(681, 65);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(516, 502);
@@ -119,22 +116,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // panel2
+            // tileBrowser1
             // 
-            this.panel2.AutoScroll = true;
-            this.panel2.Controls.Add(this.pictureBoxEditorTiles);
-            this.panel2.Location = new System.Drawing.Point(6, 19);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(504, 477);
-            this.panel2.TabIndex = 2;
-            // 
-            // pictureBoxEditorTiles
-            // 
-            this.pictureBoxEditorTiles.Location = new System.Drawing.Point(66, 56);
-            this.pictureBoxEditorTiles.Name = "pictureBoxEditorTiles";
-            this.pictureBoxEditorTiles.Size = new System.Drawing.Size(374, 243);
-            this.pictureBoxEditorTiles.TabIndex = 0;
-            this.pictureBoxEditorTiles.TabStop = false;
+            this.tileBrowser1.Location = new System.Drawing.Point(6, 19);
+            this.tileBrowser1.Name = "tileBrowser1";
+            this.tileBrowser1.Size = new System.Drawing.Size(504, 477);
+            this.tileBrowser1.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -153,8 +140,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEditorTiles)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,8 +156,7 @@
         private System.Windows.Forms.ToolStripMenuItem newMapToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialogTextureSheet;
         private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBoxEditorTiles;
+        private Components.TileBrowser tileBrowser1;
 	}
 }
 
