@@ -38,7 +38,8 @@ namespace OP_Editor.Textures
             {
                 for (int y = 0; y < _yTiles; y++)
                 {
-                    _textureSheet[x, y] = (sheet as Bitmap).Clone(new Rectangle(x*_spriteWidth, y*_spriteHeight, _spriteWidth, _spriteHeight), System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
+					Rectangle cutRect = new Rectangle(x * _spriteWidth, y * _spriteHeight, _spriteWidth, _spriteHeight);
+                    _textureSheet[x, y] = (sheet as Bitmap).Clone(cutRect, System.Drawing.Imaging.PixelFormat.DontCare);
                 }
             }
         }

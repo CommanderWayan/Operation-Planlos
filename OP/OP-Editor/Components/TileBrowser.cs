@@ -131,9 +131,16 @@ namespace OP_Editor.Components
             {
                 for (int y = 0; y < _textureSheet.YTiles; y++)
                 {
-					gfx.DrawImage(_textureSheet[x, y], x * 28 + vScrollBar.Width, y * 24 + hScrollBar.Height);
+					//gfx.DrawImageUnscaled(_textureSheet[x, y], x * 50 + vScrollBar.Width , y *50 + hScrollBar.Height );
+					gfx.DrawImageUnscaledAndClipped(_textureSheet[x, y],
+													new Rectangle(x * _textureSheet.TileWidth + vScrollBar.Width,
+																	y * _textureSheet.TileHeight + hScrollBar.Height,
+																	_textureSheet.TileWidth,
+																	_textureSheet.TileHeight)
+													);
                 }
             }
+			
         }
         private void TileBrowser_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
@@ -143,8 +150,8 @@ namespace OP_Editor.Components
                 return;
             if (e.Button == MouseButtons.Left)
             {
-                _selectedTile.X = e.X / _textureSheet.TileWidth;
-                _selectedTile.Y = e.Y / _textureSheet.TileHeight;
+				_selectedTile.X = (e.X - vScrollBar.Width) / _textureSheet.TileWidth;
+				_selectedTile.Y = (e.Y - hScrollBar.Height) / _textureSheet.TileHeight;
 				Console.WriteLine("SEL: " + _selectedTile.ToString());
             }
             PaintAll();
