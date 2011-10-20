@@ -33,39 +33,40 @@ namespace OP_Editor.Components
         }
         private void InitializeComponent()
         {
-            this.vScrollBar = new System.Windows.Forms.VScrollBar();
-            this.hScrollBar = new System.Windows.Forms.HScrollBar(); 
-            this.SuspendLayout();
-            // 
-            // vScrollBar
-            // 
-            this.vScrollBar.Location = new System.Drawing.Point(0, 16);
-            this.vScrollBar.Name = "vScrollBar";
-            this.vScrollBar.Size = new System.Drawing.Size(16, 500);
-            this.vScrollBar.TabIndex = 0;
-            this.vScrollBar.ValueChanged += new System.EventHandler(this.scrollBar_ValueChanged);
-            this.vScrollBar.Enabled = false;
-            // 
-            // hScrollBar
-            // 
-            this.hScrollBar.Location = new System.Drawing.Point(16, 0);
-            this.hScrollBar.Name = "vScrollBar";
-            this.hScrollBar.Size = new System.Drawing.Size(50, 16);
-            this.hScrollBar.TabIndex = 1;
-            this.hScrollBar.ValueChanged += new System.EventHandler(this.scrollBar_ValueChanged);
-            this.hScrollBar.Enabled = false;
-            // 
-            // TileBrowser
-            // 
-            this.Controls.Add(this.vScrollBar);
-            this.Controls.Add(this.hScrollBar);
-            this.Name = "TileBrowser";
-            this.Size = new System.Drawing.Size(10, 10);
-            this.Resize += new System.EventHandler(this.TileBrowser_Resize);
-            this.Load += new System.EventHandler(this.TileBrowser_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.TileBrowser_Paint);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TileBrowser_MouseDown);
-            this.ResumeLayout(false);
+			this.vScrollBar = new System.Windows.Forms.VScrollBar();
+			this.hScrollBar = new System.Windows.Forms.HScrollBar();
+			this.SuspendLayout();
+			// 
+			// vScrollBar
+			// 
+			this.vScrollBar.Enabled = false;
+			this.vScrollBar.Location = new System.Drawing.Point(0, 16);
+			this.vScrollBar.Name = "vScrollBar";
+			this.vScrollBar.Size = new System.Drawing.Size(16, 500);
+			this.vScrollBar.TabIndex = 0;
+			this.vScrollBar.ValueChanged += new System.EventHandler(this.scrollBar_ValueChanged);
+			// 
+			// hScrollBar
+			// 
+			this.hScrollBar.Enabled = false;
+			this.hScrollBar.Location = new System.Drawing.Point(16, 0);
+			this.hScrollBar.Name = "hScrollBar";
+			this.hScrollBar.Size = new System.Drawing.Size(50, 16);
+			this.hScrollBar.TabIndex = 1;
+			this.hScrollBar.ValueChanged += new System.EventHandler(this.scrollBar_ValueChanged);
+			// 
+			// TileBrowser
+			// 
+			this.Controls.Add(this.vScrollBar);
+			this.Controls.Add(this.hScrollBar);
+			this.Name = "TileBrowser";
+			this.Size = new System.Drawing.Size(476, 426);
+			this.Load += new System.EventHandler(this.TileBrowser_Load);
+			this.Paint += new System.Windows.Forms.PaintEventHandler(this.TileBrowser_Paint);
+			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TileBrowser_MouseDown);
+			this.Resize += new System.EventHandler(this.TileBrowser_Resize);
+			this.ResumeLayout(false);
+
         }
         public void setTextureSheet(TextureSheet Ts)
         {
@@ -95,6 +96,7 @@ namespace OP_Editor.Components
                 vScrollBar.Maximum = _textureSheet.YTiles - rows;
                 vScrollBar.Value = 0;
             }
+			PaintAll();
             Update();
         }
 
@@ -124,11 +126,12 @@ namespace OP_Editor.Components
                 return;
 
             Graphics gfx = CreateGraphics();
+			gfx.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             for (int x = 0; x < _textureSheet.XTiles; x++)
             {
                 for (int y = 0; y < _textureSheet.YTiles; y++)
                 {
-                    gfx.DrawImageUnscaled(_textureSheet[x, y], x * _textureSheet.TileWidth + vScrollBar.Width, y * _textureSheet.TileHeight + hScrollBar.Height);
+					gfx.DrawImage(_textureSheet[x, y], x * 28 + vScrollBar.Width, y * 24 + hScrollBar.Height);
                 }
             }
         }
@@ -142,7 +145,7 @@ namespace OP_Editor.Components
             {
                 _selectedTile.X = e.X / _textureSheet.TileWidth;
                 _selectedTile.Y = e.Y / _textureSheet.TileHeight;
-
+				Console.WriteLine("SEL: " + _selectedTile.ToString());
             }
             PaintAll();
         }
