@@ -125,18 +125,46 @@ namespace OP_Editor.Components
             if (_textureSheet == null) 
                 return;
 
+			//TODO: Flackerfrei zeichnen UND! hinkriegen das der Rahmen weg geht!
             Graphics gfx = CreateGraphics();
+			Graphics tempGfx = CreateGraphics();
 			gfx.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+			tempGfx.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+
+			tempGfx.Clear(Color.Transparent);
             for (int x = 0; x < _textureSheet.XTiles; x++)
             {
                 for (int y = 0; y < _textureSheet.YTiles; y++)
                 {					
-					gfx.DrawImageUnscaledAndClipped(_textureSheet[x, y],
-													new Rectangle(x * _textureSheet.TileWidth + vScrollBar.Width - hScrollBar.Value * _textureSheet.TileWidth,
+					//gfx.DrawImageUnscaledAndClipped(_textureSheet[x, y],
+					Rectangle cutRec =	new Rectangle(x * _textureSheet.TileWidth + vScrollBar.Width - hScrollBar.Value * _textureSheet.TileWidth,
 																	y * _textureSheet.TileHeight + hScrollBar.Height - vScrollBar.Value * _textureSheet.TileHeight,
 																	_textureSheet.TileWidth,
-																	_textureSheet.TileHeight)
-													);
+																	_textureSheet.TileHeight);
+
+            					tempGfx.DrawImageUnscaledAndClipped(_textureSheet[x, y],cutRec);
+
+					Rectangle drawRec = new Rectangle(x * _textureSheet.TileWidth + vScrollBar.Width,
+																	y * _textureSheet.TileHeight + hScrollBar.Height,
+																	_textureSheet.TileWidth-1,
+																	_textureSheet.TileHeight-1);
+					if (_selectedTile == new Point(x, y))
+					{
+						tempGfx.DrawRectangle(new Pen(Color.Red), drawRec);
+					}
+
+            //            Graphics gfx = CreateGraphics();
+            //gfx.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+            //for (int x = 0; x < _textureSheet.XTiles; x++)
+            //{
+            //    for (int y = 0; y < _textureSheet.YTiles; y++)
+            //    {					
+            //        gfx.DrawImageUnscaledAndClipped(_textureSheet[x, y],
+            //                                        new Rectangle(x * _textureSheet.TileWidth + vScrollBar.Width - hScrollBar.Value * _textureSheet.TileWidth,
+            //                                                        y * _textureSheet.TileHeight + hScrollBar.Height - vScrollBar.Value * _textureSheet.TileHeight,
+            //                                                        _textureSheet.TileWidth,
+            //                                                        _textureSheet.TileHeight)
+            //                                        );
 					
                 }
             }
