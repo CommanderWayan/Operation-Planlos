@@ -130,14 +130,14 @@ namespace OP_Editor.Components
             for (int x = 0; x < _textureSheet.XTiles; x++)
             {
                 for (int y = 0; y < _textureSheet.YTiles; y++)
-                {
-					//gfx.DrawImageUnscaled(_textureSheet[x, y], x * 50 + vScrollBar.Width , y *50 + hScrollBar.Height );
+                {					
 					gfx.DrawImageUnscaledAndClipped(_textureSheet[x, y],
 													new Rectangle(x * _textureSheet.TileWidth + vScrollBar.Width,
 																	y * _textureSheet.TileHeight + hScrollBar.Height,
 																	_textureSheet.TileWidth,
 																	_textureSheet.TileHeight)
 													);
+					
                 }
             }
 			
