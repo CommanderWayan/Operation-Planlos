@@ -20,6 +20,7 @@ namespace OP_Editor.Components
 
         private System.Windows.Forms.VScrollBar vScrollBar;
         private System.Windows.Forms.HScrollBar hScrollBar;
+        //private System.Windows.Forms.TabPage testTab;
         int _browserWidth;
         int _browserHeight;
 
@@ -56,6 +57,7 @@ namespace OP_Editor.Components
         {
             this.vScrollBar = new System.Windows.Forms.VScrollBar();
             this.hScrollBar = new System.Windows.Forms.HScrollBar();
+            //this.testTab = new System.Windows.Forms.TabPage();
             this.SuspendLayout();
             // 
             // vScrollBar
@@ -75,11 +77,22 @@ namespace OP_Editor.Components
             this.hScrollBar.Size = new System.Drawing.Size(460, 16);
             this.hScrollBar.TabIndex = 1;
             this.hScrollBar.ValueChanged += new System.EventHandler(this.scrollBar_ValueChanged);
+            //
+            //TabPage
+            //
+            //this.testTab.Location = new System.Drawing.Point(0, 0);
+            //this.testTab.Name = "tabPage1";
+            //this.testTab.Padding = new System.Windows.Forms.Padding(3);
+            //this.testTab.Size = new System.Drawing.Size(192, 74);
+            //this.testTab.TabIndex = 0;
+            //this.testTab.Text = "tabPage1";
+            //this.testTab.UseVisualStyleBackColor = true;
             // 
             // TileBrowser
             // 
             this.Controls.Add(this.vScrollBar);
             this.Controls.Add(this.hScrollBar);
+            this.Controls.Add(this.testTab);
             this.Name = "TileBrowser";
             this.Size = new System.Drawing.Size(505, 459);
             this.Load += new System.EventHandler(this.TileBrowser_Load);

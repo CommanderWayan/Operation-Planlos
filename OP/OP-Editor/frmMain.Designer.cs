@@ -78,19 +78,19 @@
             this.newMapToolStripMenuItem,
             this.addTexturesheetToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(35, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
             this.toolStripMenuItem1.Text = "File";
             // 
             // newMapToolStripMenuItem
             // 
             this.newMapToolStripMenuItem.Name = "newMapToolStripMenuItem";
-            this.newMapToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.newMapToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.newMapToolStripMenuItem.Text = "New Map";
             // 
             // addTexturesheetToolStripMenuItem
             // 
             this.addTexturesheetToolStripMenuItem.Name = "addTexturesheetToolStripMenuItem";
-            this.addTexturesheetToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.addTexturesheetToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.addTexturesheetToolStripMenuItem.Text = "Add Texturesheet";
             this.addTexturesheetToolStripMenuItem.Click += new System.EventHandler(this.addTexturesheetToolStripMenuItem_Click);
             // 
