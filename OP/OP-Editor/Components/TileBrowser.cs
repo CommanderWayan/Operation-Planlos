@@ -20,7 +20,8 @@ namespace OP_Editor.Components
 
         private System.Windows.Forms.VScrollBar vScrollBar;
         private System.Windows.Forms.HScrollBar hScrollBar;
-        //private System.Windows.Forms.TabPage testTab;
+        private System.Windows.Forms.TabPage testTab;
+        private System.Windows.Forms.TabControl testTabCon;
         int _browserWidth;
         int _browserHeight;
 
@@ -57,7 +58,8 @@ namespace OP_Editor.Components
         {
             this.vScrollBar = new System.Windows.Forms.VScrollBar();
             this.hScrollBar = new System.Windows.Forms.HScrollBar();
-            //this.testTab = new System.Windows.Forms.TabPage();
+            this.testTab = new System.Windows.Forms.TabPage();
+            this.testTabCon = new System.Windows.Forms.TabControl();
             this.SuspendLayout();
             // 
             // vScrollBar
@@ -80,19 +82,29 @@ namespace OP_Editor.Components
             //
             //TabPage
             //
-            //this.testTab.Location = new System.Drawing.Point(0, 0);
-            //this.testTab.Name = "tabPage1";
-            //this.testTab.Padding = new System.Windows.Forms.Padding(3);
-            //this.testTab.Size = new System.Drawing.Size(192, 74);
-            //this.testTab.TabIndex = 0;
-            //this.testTab.Text = "tabPage1";
-            //this.testTab.UseVisualStyleBackColor = true;
+            this.testTab.Location = new System.Drawing.Point(0, 0);
+            this.testTab.Name = "tabPage1";
+            this.testTab.Padding = new System.Windows.Forms.Padding(3);
+            this.testTab.Size = new System.Drawing.Size(192, 74);
+            this.testTab.TabIndex = 0;
+            this.testTab.Text = "tabPage1";
+            this.testTab.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            this.testTabCon.Controls.Add(this.testTab);
+            this.testTabCon.Controls.Add(this.testTab);
+            this.testTabCon.Location = new System.Drawing.Point(vScrollBar.Width, hScrollBar.Height);
+            this.testTabCon.Name = "tabControl1";
+            this.testTabCon.SelectedIndex = 0;
+            this.testTabCon.Size = new System.Drawing.Size(200, 100);
+            this.testTabCon.TabIndex = 4;
             // 
             // TileBrowser
             // 
             this.Controls.Add(this.vScrollBar);
             this.Controls.Add(this.hScrollBar);
-            this.Controls.Add(this.testTab);
+            this.Controls.Add(this.testTabCon);
             this.Name = "TileBrowser";
             this.Size = new System.Drawing.Size(505, 459);
             this.Load += new System.EventHandler(this.TileBrowser_Load);
