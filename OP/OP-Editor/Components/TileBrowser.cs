@@ -31,6 +31,10 @@ namespace OP_Editor.Components
         bool[,] _multiSelectedTiles;
         bool _multiselected;
 
+        private const int browserWidth = 505;
+        private const int browserHeight = 475; //warum vorher 459?
+        private const int scrollBarWidth = 16;
+
         public TileBrowser()
         {
             InitializeComponent();
@@ -65,48 +69,50 @@ namespace OP_Editor.Components
             // vScrollBar
             // 
             this.vScrollBar.Enabled = false;
-            this.vScrollBar.Location = new System.Drawing.Point(0, 16);
+            this.vScrollBar.Location = new System.Drawing.Point(0, scrollBarWidth);
             this.vScrollBar.Name = "vScrollBar";
-            this.vScrollBar.Size = new System.Drawing.Size(16, 410);
+            //this.vScrollBar.Size = new System.Drawing.Size(scrollBarWidth, 410);
+            this.vScrollBar.Size = new System.Drawing.Size(scrollBarWidth, browserHeight - scrollBarWidth);
             this.vScrollBar.TabIndex = 0;
             this.vScrollBar.ValueChanged += new System.EventHandler(this.scrollBar_ValueChanged);
             // 
             // hScrollBar
             // 
             this.hScrollBar.Enabled = false;
-            this.hScrollBar.Location = new System.Drawing.Point(16, 0);
+            this.hScrollBar.Location = new System.Drawing.Point(scrollBarWidth, 0);
             this.hScrollBar.Name = "hScrollBar";
-            this.hScrollBar.Size = new System.Drawing.Size(460, 16);
+            //this.hScrollBar.Size = new System.Drawing.Size(460, scrollBarWidth); //woher die 460?
+            this.hScrollBar.Size = new System.Drawing.Size(browserWidth - scrollBarWidth, scrollBarWidth);
             this.hScrollBar.TabIndex = 1;
             this.hScrollBar.ValueChanged += new System.EventHandler(this.scrollBar_ValueChanged);
             //
             //TabPage
             //
-            this.testTab.Location = new System.Drawing.Point(0, 0);
-            this.testTab.Name = "tabPage1";
-            this.testTab.Padding = new System.Windows.Forms.Padding(3);
-            this.testTab.Size = new System.Drawing.Size(192, 74);
-            this.testTab.TabIndex = 0;
-            this.testTab.Text = "tabPage1";
-            this.testTab.UseVisualStyleBackColor = true;
+            //this.testTab.Location = new System.Drawing.Point(vScrollBar.Width, hScrollBar.Height);
+            //this.testTab.Name = "tabPage1";
+            //this.testTab.Padding = new System.Windows.Forms.Padding(3);
+            //this.testTab.Size = new System.Drawing.Size(200, 100);
+            //this.testTab.TabIndex = 0;
+            //this.testTab.Text = "tabPage1";
+            //this.testTab.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
+            //this.testTabCon.Controls.Add(this.testTab);
             this.testTabCon.Controls.Add(this.testTab);
-            this.testTabCon.Controls.Add(this.testTab);
-            this.testTabCon.Location = new System.Drawing.Point(vScrollBar.Width, hScrollBar.Height);
+            this.testTabCon.Location = new System.Drawing.Point(0, 0);
             this.testTabCon.Name = "tabControl1";
             this.testTabCon.SelectedIndex = 0;
-            this.testTabCon.Size = new System.Drawing.Size(200, 100);
+            this.testTabCon.Size = new System.Drawing.Size(browserWidth, browserHeight);
             this.testTabCon.TabIndex = 4;
             // 
             // TileBrowser
             // 
             this.Controls.Add(this.vScrollBar);
             this.Controls.Add(this.hScrollBar);
-            this.Controls.Add(this.testTabCon);
+            //this.Controls.Add(this.testTabCon);
             this.Name = "TileBrowser";
-            this.Size = new System.Drawing.Size(505, 459);
+            this.Size = new System.Drawing.Size(browserWidth, browserHeight);
             this.Load += new System.EventHandler(this.TileBrowser_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.TileBrowser_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TileBrowser_MouseDown);
