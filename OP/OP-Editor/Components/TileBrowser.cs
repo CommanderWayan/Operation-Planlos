@@ -31,8 +31,8 @@ namespace OP_Editor.Components
         bool[,] _multiSelectedTiles;
         bool _multiselected;
 
-        private const int browserWidth = 505;
-        private const int browserHeight = 475; //warum vorher 459?
+        //private const int browserWidth = 505;
+        //private const int browserHeight = 475; //warum vorher 459?
         private const int scrollBarWidth = 17;
 
         public TileBrowser()
@@ -72,7 +72,7 @@ namespace OP_Editor.Components
             this.vScrollBar.Location = new System.Drawing.Point(0, scrollBarWidth);
             this.vScrollBar.Name = "vScrollBar";
             //this.vScrollBar.Size = new System.Drawing.Size(scrollBarWidth, 410);
-            this.vScrollBar.Size = new System.Drawing.Size(scrollBarWidth, browserHeight - scrollBarWidth);
+            this.vScrollBar.Size = new System.Drawing.Size(scrollBarWidth,this.Height - scrollBarWidth);
             this.vScrollBar.TabIndex = 0;
             this.vScrollBar.ValueChanged += new System.EventHandler(this.scrollBar_ValueChanged);
             // 
@@ -82,7 +82,7 @@ namespace OP_Editor.Components
             this.hScrollBar.Location = new System.Drawing.Point(scrollBarWidth, 0);
             this.hScrollBar.Name = "hScrollBar";
             //this.hScrollBar.Size = new System.Drawing.Size(460, scrollBarWidth); //woher die 460?
-            this.hScrollBar.Size = new System.Drawing.Size(browserWidth - scrollBarWidth, scrollBarWidth);
+            this.hScrollBar.Size = new System.Drawing.Size(this.Width - scrollBarWidth, scrollBarWidth);
             this.hScrollBar.TabIndex = 1;
             this.hScrollBar.ValueChanged += new System.EventHandler(this.scrollBar_ValueChanged);
             //
@@ -103,16 +103,16 @@ namespace OP_Editor.Components
             this.testTabCon.Location = new System.Drawing.Point(0, 0);
             this.testTabCon.Name = "tabControl1";
             this.testTabCon.SelectedIndex = 0;
-            this.testTabCon.Size = new System.Drawing.Size(browserWidth, browserHeight);
+            this.testTabCon.Size = new System.Drawing.Size(this.Width, this.Height);
             this.testTabCon.TabIndex = 4;
             // 
             // TileBrowser
             // 
             this.Controls.Add(this.vScrollBar);
             this.Controls.Add(this.hScrollBar);
-            //this.Controls.Add(this.testTabCon);
+            this.Controls.Add(this.testTabCon);
             this.Name = "TileBrowser";
-            this.Size = new System.Drawing.Size(browserWidth, browserHeight);
+            this.Size = new System.Drawing.Size(this.Width, this.Height);
             this.Load += new System.EventHandler(this.TileBrowser_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.TileBrowser_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TileBrowser_MouseDown);
@@ -238,6 +238,8 @@ namespace OP_Editor.Components
             hScrollBar.Width = Width - 16;
             _browserHeight = Height - hScrollBar.Height;
             _browserWidth = Width - vScrollBar.Width;
+            testTabCon.Height = Height;
+            testTabCon.Width = Width;
         }
         private void TileBrowser_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
