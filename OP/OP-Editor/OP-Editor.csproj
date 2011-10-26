@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\MapViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\MapViewer.Designer.cs">
+      <DependentUpon>MapViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\TileBrowser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -61,6 +67,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Textures\TextureSheet.cs" />
+    <EmbeddedResource Include="Components\MapViewer.resx">
+      <DependentUpon>MapViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\TileBrowser.resx">
       <DependentUpon>TileBrowser.cs</DependentUpon>
     </EmbeddedResource>

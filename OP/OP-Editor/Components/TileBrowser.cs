@@ -33,7 +33,7 @@ namespace OP_Editor.Components
 
         private const int browserWidth = 505;
         private const int browserHeight = 475; //warum vorher 459?
-        private const int scrollBarWidth = 16;
+        private const int scrollBarWidth = 17;
 
         public TileBrowser()
         {
