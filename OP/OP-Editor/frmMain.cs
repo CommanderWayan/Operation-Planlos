@@ -34,7 +34,7 @@ namespace OP_Editor
         {
             TextureSheetReader tr = new TextureSheetReader();
             TextureSheet ts = tr.loadTextureSheet(SheetFile);
-            tileBrowser1.setTextureSheet(ts);
+            tileBrowser1.setTextureSheet(ts,SheetFile.Name);
         }                
 	}
 }

@@ -65,6 +65,53 @@ namespace OP_Editor.ContentReaders
             this.ResumeLayout(false);
         }
 
+        public void setTextureSheet(TextureSheet Ts)
+        {
+            Invalidate();
+            _textureSheet = Ts;
+
+            _selectedTile = new Point(-1, -1);
+            _multiSelectedTiles = new bool[_textureSheet.XTiles, _textureSheet.YTiles];
+
+            if (_textureSheet == null)
+            {
+                vScrollBar.Enabled = false;
+                hScrollBar.Enabled = false;
+                Update();
+                return;
+            }
+            //Schauen wir mal wieviele teile wir grad darstellen können
+            int columns = this.Width / _textureSheet.TileWidth;
+            int rows = this.Height / _textureSheet.TileHeight;
+            //gucken ob das ohne Scrollbars reicht
+            if (columns < _textureSheet.XTiles) //reicht nicht von der Breite
+            {
+                hScrollBar.Enabled = true;
+                hScrollBar.Minimum = 0;
+                hScrollBar.Maximum = _textureSheet.XTiles - columns / 2; //check if wirklich so /2
+                hScrollBar.Value = 0;
+            }
+            else
+            {
+                hScrollBar.Enabled = false;
+                hScrollBar.Value = 0;
+            }
+            if (rows < _textureSheet.YTiles) //reicht nicht von der Höhe
+            {
+                vScrollBar.Enabled = true;
+                vScrollBar.Minimum = 0;
+                vScrollBar.Maximum = _textureSheet.YTiles - rows / 2; //check if wirklich so /2
+                vScrollBar.Value = 0;
+            }
+            else
+            {
+                vScrollBar.Enabled = false;
+                vScrollBar.Value = 0;
+            }
+            PaintAll();
+            Update();
+        }
+
         private bool checkIfMultipleSelectionIsConnected()
         {
             //Überprüfen ob die auswahl zusammenhängend ist (muß sie für "pinsel" - muss sie nicht für "füllen")
