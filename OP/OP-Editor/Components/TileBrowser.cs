@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
 using OP_Editor.Textures;
+using OP_Editor.ContentReaders;
 
 
 namespace OP_Editor.Components
@@ -20,7 +21,7 @@ namespace OP_Editor.Components
 
         private System.Windows.Forms.VScrollBar vScrollBar;
         private System.Windows.Forms.HScrollBar hScrollBar;
-        private System.Windows.Forms.TabPage testTab;
+        private TileBrowserTabPage testTab;
         private System.Windows.Forms.TabControl testTabCon;
         int _browserWidth;
         int _browserHeight;
@@ -58,11 +59,12 @@ namespace OP_Editor.Components
             }
             base.Dispose(disposing);
         }
+
         private void InitializeComponent()
         {
             this.vScrollBar = new System.Windows.Forms.VScrollBar();
             this.hScrollBar = new System.Windows.Forms.HScrollBar();
-            this.testTab = new System.Windows.Forms.TabPage();
+            this.testTab = new TileBrowserTabPage();
             this.testTabCon = new System.Windows.Forms.TabControl();
             this.SuspendLayout();
             // 
@@ -108,8 +110,8 @@ namespace OP_Editor.Components
             // 
             // TileBrowser
             // 
-            this.Controls.Add(this.vScrollBar);
-            this.Controls.Add(this.hScrollBar);
+            //this.Controls.Add(this.vScrollBar);
+            //this.Controls.Add(this.hScrollBar);
             this.Controls.Add(this.testTabCon);
             this.Name = "TileBrowser";
             this.Size = new System.Drawing.Size(this.Width, this.Height);
