@@ -7,5 +7,8 @@ namespace OP_Editor.Map
 {
     class Map
     {
+        public Map()
+        {
+        }
     }
 }

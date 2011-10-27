@@ -67,6 +67,7 @@
     </Compile>
     <Compile Include="Layers\MapLayer.cs" />
     <Compile Include="Map\Map.cs" />
+    <Compile Include="Map\MapTile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Textures\TextureSheet.cs" />
@@ -257,6 +258,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Dialogs\" />
     <Folder Include="Viewers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

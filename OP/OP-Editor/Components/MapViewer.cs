@@ -12,6 +12,17 @@ namespace OP_Editor.Components
 		public MapViewer()
 		{
 			InitializeComponent();
-		}		
+		}
+        private void MapViewer_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            PaintAll();
+        }
+        private void PaintAll()
+        {
+            //Map malen
+        }
+        public void SetMap()
+        {
+        }
 	}
 }
