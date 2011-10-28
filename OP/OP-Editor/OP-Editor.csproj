@@ -56,8 +56,14 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ContentReaders\TextureSheetReader.cs" />
-    <Compile Include="ContentReaders\TileBrowserTabPage.cs">
+    <Compile Include="Components\TileBrowserTabPage.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dialogs\dlgNewMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\dlgNewMap.Designer.cs">
+      <DependentUpon>dlgNewMap.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -65,6 +71,7 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layers\EntityLayer.cs" />
     <Compile Include="Layers\MapLayer.cs" />
     <Compile Include="Map\Map.cs" />
     <Compile Include="Map\MapTile.cs" />
@@ -76,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\TileBrowser.resx">
       <DependentUpon>TileBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\dlgNewMap.resx">
+      <DependentUpon>dlgNewMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -258,7 +268,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Dialogs\" />
     <Folder Include="Viewers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

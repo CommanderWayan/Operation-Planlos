@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using OP_Editor.Map;
 
 namespace OP_Editor.Layers
 {
     class MapLayer
     {
-        Point[,] _tilemap;
-        float _parallaxFactor;
+        MapTile[,] _tilemap;
+        float _parallaxValueVert;
+        float _parallaxValueHorz;
 
-        public MapLayer(int Width, int Height)
+        public MapLayer(int Width, int Height, float ParallaxValueVert, float ParallaxValueHorz)
         {
-            this._tilemap = new Point[Width, Height];
+            this._tilemap = new MapTile[Width, Height];
         }
-        public void setTile(int x, int y)
+
+        public void setTile(int x, int y, MapTile Tile)
         {
 
         }
+        
     }
 }

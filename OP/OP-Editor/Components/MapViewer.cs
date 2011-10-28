@@ -4,11 +4,16 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using OP_Editor.Map;
 
 namespace OP_Editor.Components
 {
 	public partial class MapViewer : System.Windows.Forms.UserControl
 	{
+        private int _tileHeight;
+        private int _tileWidth;
+        private Map.Map _map;
+
 		public MapViewer()
 		{
 			InitializeComponent();
@@ -21,8 +26,10 @@ namespace OP_Editor.Components
         {
             //Map malen
         }
-        public void SetMap()
+        public void SetMap(Map.Map Map)
         {
+            this._map = Map;
         }
+        public Map.Map CurrentMap { get { return this._map; } }
 	}
 }
