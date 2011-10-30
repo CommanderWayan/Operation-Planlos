@@ -1,0 +1,16 @@
+ebenen im editor
+trigger, events....
+
+ebenen im game - wie erreicht man bodenziele dann?
+ki für einige gegner? dodging usw...
+waffen
+waffenupgrades
+schiffe
+rpg-system? was soll es beeinflussen?
+
+
+usefull linx
+
+http://www.david-gouveia.com/2d-camera-with-parallax-scrolling-in-xna/
+http://www.david-amador.com/2009/10/xna-camera-2d-with-zoom-and-rotation/
+http://tim.strafenet.com/tileeditor.html

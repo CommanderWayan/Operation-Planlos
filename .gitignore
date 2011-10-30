@@ -1,0 +1,12 @@
+*.suo
+thumbs.db
+/bin
+/obj
+/config
+
+/OP/OP-Editor/bin
+/OP/OP-Editor/obj
+/OP/OP/OPContent/bin
+/OP/OP/OP/bin
+/OP/OP/OP/obj
+/OP/OP/OPContent/obj
