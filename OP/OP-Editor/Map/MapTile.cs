@@ -7,10 +7,11 @@ using System.Drawing;
 namespace OP_Editor.Map
 {
 
-    class MapTile
+    public class MapTile
     {
         Point _textureSheetTile;
         Textures.TextureSheet _usedTextureSheet;
+
         public MapTile(int XSheetCoordinate, int YSheetCoordinate, ref Textures.TextureSheet UsedTextureSheet)
         {
             _textureSheetTile.X = XSheetCoordinate;

@@ -59,11 +59,11 @@
     <Compile Include="Components\TileBrowserTabPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Dialogs\dlgNewMap.cs">
+    <Compile Include="Dialogs\dlgNewLayer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\dlgNewMap.Designer.cs">
-      <DependentUpon>dlgNewMap.cs</DependentUpon>
+    <Compile Include="Dialogs\dlgNewLayer.Designer.cs">
+      <DependentUpon>dlgNewLayer.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -84,8 +84,8 @@
     <EmbeddedResource Include="Components\TileBrowser.resx">
       <DependentUpon>TileBrowser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\dlgNewMap.resx">
-      <DependentUpon>dlgNewMap.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\dlgNewLayer.resx">
+      <DependentUpon>dlgNewLayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

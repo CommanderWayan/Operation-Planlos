@@ -13,6 +13,7 @@ using OP_Editor.ContentReaders;
 
 namespace OP_Editor
 {
+    //TODO: setzen der tileabmessungen wenn tilesheet oder map erstellt werden
 	public partial class frmMain : Form
 	{
 		public frmMain()
@@ -31,23 +32,38 @@ namespace OP_Editor
         }
         private void newMapToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Dialogs.dlgNewMap dlgNewMap = new Dialogs.dlgNewMap();
+            Dialogs.dlgNewLayer dlgNewMap = new Dialogs.dlgNewLayer(Dialogs.dlgNewLayer.NewType.Map);
             if (dlgNewMap.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 //Neue Map erstellen
-                mapViewer.SetMap(new Map.Map(dlgNewMap.MapWidth, dlgNewMap.MapHeight, dlgNewMap.ParaVert, dlgNewMap.ParaHorz));
-                setLayerControl(mapViewer.CurrentMap.LayerCount);                
+                mapViewer.SetMap(new Map.Map(dlgNewMap.Label, dlgNewMap.MapWidth, dlgNewMap.MapHeight, dlgNewMap.ParaVert, dlgNewMap.ParaHorz));
+                listBox_Layers.DataSource = mapViewer.CurrentMap.Layers;                  
+            }
+        }
+        private void button_AddLayer_Click(object sender, EventArgs e)
+        {
+            if (mapViewer.CurrentMap == null)
+            {
+                MessageBox.Show("You cannot add a layer without generating a map first!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
             else
             {
-                //Nix
+                Dialogs.dlgNewLayer dlgNewLayer = new Dialogs.dlgNewLayer(Dialogs.dlgNewLayer.NewType.Layer);
+                if (dlgNewLayer.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    mapViewer.CurrentMap.AddLayer(dlgNewLayer.Label, dlgNewLayer.MapWidth, dlgNewLayer.MapHeight, dlgNewLayer.ParaVert, dlgNewLayer.ParaHorz);
+                    refreshLayersDisplay();
+                }
             }
-
         }
-        private void setLayerControl(int LayerCount)
+        private void button_RemoveLayer_Click(object sender, EventArgs e)
         {
-            this.layerChooser.Maximum = LayerCount;
-            this.label_LayerCount.Text = "/ " + LayerCount.ToString();
+            if (listBox_Layers.SelectedIndex != -1)
+            {
+                Console.WriteLine(listBox_Layers.SelectedIndex);
+                mapViewer.CurrentMap.RemoveLayer(listBox_Layers.SelectedIndex);
+                refreshLayersDisplay();
+            }
         }
         private void addTextureSheet(FileInfo SheetFile)
         {
@@ -55,6 +71,44 @@ namespace OP_Editor
             TextureSheet ts = tr.loadTextureSheet(SheetFile);
             tileBrowser1.setTextureSheet(ts,SheetFile.Name);
         }
+
+        private void button_LayerUp_Click(object sender, EventArgs e)
+        {
+            mapViewer.CurrentMap.MoveLayerUp(listBox_Layers.SelectedIndex);
+            if ((listBox_Layers.SelectedIndex < listBox_Layers.Items.Count - 1) && listBox_Layers.SelectedIndex > 0)
+                listBox_Layers.SelectedIndex++;
+            refreshLayersDisplay();
+        }
+
+        private void button_LayerDown_Click(object sender, EventArgs e)
+        {
+            mapViewer.CurrentMap.MoveLayerDown(listBox_Layers.SelectedIndex);
+            if (listBox_Layers.SelectedIndex > 1) 
+                listBox_Layers.SelectedIndex--;
+            refreshLayersDisplay();
+        }
+
+        private void refreshLayersDisplay()
+        {
+            ((CurrencyManager)listBox_Layers.BindingContext[mapViewer.CurrentMap.Layers]).Refresh();
+        }
+
+        private void button_EditLayer_Click(object sender, EventArgs e)
+        {
+            //TODO: Layer editierbar machen
+            /*
+            Dialogs.dlgNewLayer dlgNewLayer = new Dialogs.dlgNewLayer(Dialogs.dlgNewLayer.NewType.EditLayer);
+            
+            if (dlgNewLayer.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+            }
+             * */
+        }
+
+        
+
+        
+        
 
                      
 	}
