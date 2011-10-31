@@ -80,6 +80,43 @@ namespace OP_Editor.ContentReaders
                 Update();
                 return;
             }
+            checkUpdateScrollBar();
+            ////Schauen wir mal wieviele teile wir grad darstellen können
+            //int columns = this.Width / _textureSheet.TileWidth;
+            //int rows = this.Height / _textureSheet.TileHeight;
+            ////gucken ob das ohne Scrollbars reicht
+            //if (columns < _textureSheet.XTiles) //reicht nicht von der Breite
+            //{
+            //    hScrollBar.Enabled = true;
+            //    hScrollBar.Minimum = 0;
+            //    hScrollBar.Maximum = _textureSheet.XTiles - columns / 2; //check if wirklich so /2
+            //    hScrollBar.Value = 0;
+            //}
+            //else
+            //{
+            //    hScrollBar.Enabled = false;
+            //    hScrollBar.Value = 0;
+            //}
+            //if (rows < _textureSheet.YTiles) //reicht nicht von der Höhe
+            //{
+            //    vScrollBar.Enabled = true;
+            //    vScrollBar.Minimum = 0;
+            //    vScrollBar.Maximum = _textureSheet.YTiles - rows / 2; //check if wirklich so /2
+            //    vScrollBar.Value = 0;
+            //}
+            //else
+            //{
+            //    vScrollBar.Enabled = false;
+            //    vScrollBar.Value = 0;
+            //}
+            PaintAll();
+            Update();
+        }
+
+        private void checkUpdateScrollBar()
+        {
+            if (_textureSheet == null)
+                return;
             //Schauen wir mal wieviele teile wir grad darstellen können
             int columns = this.Width / _textureSheet.TileWidth;
             int rows = this.Height / _textureSheet.TileHeight;
@@ -108,8 +145,6 @@ namespace OP_Editor.ContentReaders
                 vScrollBar.Enabled = false;
                 vScrollBar.Value = 0;
             }
-            PaintAll();
-            Update();
         }
 
         private bool checkIfMultipleSelectionIsConnected()
@@ -229,6 +264,8 @@ namespace OP_Editor.ContentReaders
         {
             vScrollBar.Height = Height - 16;
             hScrollBar.Width = Width - 16;
+            checkUpdateScrollBar();
+            PaintAll();
         }
 
         private void PaintAll()
