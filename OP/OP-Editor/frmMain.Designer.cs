@@ -42,14 +42,14 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.button_EditLayer = new System.Windows.Forms.Button();
+            this.button_LayerDown = new System.Windows.Forms.Button();
+            this.button_LayerUp = new System.Windows.Forms.Button();
             this.button_RemoveLayer = new System.Windows.Forms.Button();
             this.listBox_Layers = new System.Windows.Forms.ListBox();
             this.button_AddLayer = new System.Windows.Forms.Button();
-            this.button_LayerUp = new System.Windows.Forms.Button();
-            this.button_LayerDown = new System.Windows.Forms.Button();
             this.mapViewer = new OP_Editor.Components.MapViewer();
             this.tileBrowser1 = new OP_Editor.Components.TileBrowser();
-            this.button_EditLayer = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -130,6 +130,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button_AddLayer);
             this.splitContainer1.Panel2.Controls.Add(this.button_EditLayer);
             this.splitContainer1.Panel2.Controls.Add(this.button_LayerDown);
             this.splitContainer1.Panel2.Controls.Add(this.button_LayerUp);
@@ -197,6 +198,36 @@
             this.toolStripButton3.Size = new System.Drawing.Size(22, 20);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
+            // button_EditLayer
+            // 
+            this.button_EditLayer.Location = new System.Drawing.Point(234, 67);
+            this.button_EditLayer.Name = "button_EditLayer";
+            this.button_EditLayer.Size = new System.Drawing.Size(155, 23);
+            this.button_EditLayer.TabIndex = 10;
+            this.button_EditLayer.Text = "Edit Layer";
+            this.button_EditLayer.UseVisualStyleBackColor = true;
+            this.button_EditLayer.Click += new System.EventHandler(this.button_EditLayer_Click);
+            // 
+            // button_LayerDown
+            // 
+            this.button_LayerDown.Location = new System.Drawing.Point(234, 195);
+            this.button_LayerDown.Name = "button_LayerDown";
+            this.button_LayerDown.Size = new System.Drawing.Size(75, 23);
+            this.button_LayerDown.TabIndex = 9;
+            this.button_LayerDown.Text = "Down";
+            this.button_LayerDown.UseVisualStyleBackColor = true;
+            this.button_LayerDown.Click += new System.EventHandler(this.button_LayerDown_Click);
+            // 
+            // button_LayerUp
+            // 
+            this.button_LayerUp.Location = new System.Drawing.Point(234, 224);
+            this.button_LayerUp.Name = "button_LayerUp";
+            this.button_LayerUp.Size = new System.Drawing.Size(75, 23);
+            this.button_LayerUp.TabIndex = 8;
+            this.button_LayerUp.Text = "Up";
+            this.button_LayerUp.UseVisualStyleBackColor = true;
+            this.button_LayerUp.Click += new System.EventHandler(this.button_LayerUp_Click);
+            // 
             // button_RemoveLayer
             // 
             this.button_RemoveLayer.Location = new System.Drawing.Point(234, 38);
@@ -217,33 +248,13 @@
             // 
             // button_AddLayer
             // 
-            this.button_AddLayer.Location = new System.Drawing.Point(1290, 33);
+            this.button_AddLayer.Location = new System.Drawing.Point(234, 9);
             this.button_AddLayer.Name = "button_AddLayer";
             this.button_AddLayer.Size = new System.Drawing.Size(155, 23);
             this.button_AddLayer.TabIndex = 5;
             this.button_AddLayer.Text = "Add Layer";
             this.button_AddLayer.UseVisualStyleBackColor = true;
             this.button_AddLayer.Click += new System.EventHandler(this.button_AddLayer_Click);
-            // 
-            // button_LayerUp
-            // 
-            this.button_LayerUp.Location = new System.Drawing.Point(234, 224);
-            this.button_LayerUp.Name = "button_LayerUp";
-            this.button_LayerUp.Size = new System.Drawing.Size(75, 23);
-            this.button_LayerUp.TabIndex = 8;
-            this.button_LayerUp.Text = "Up";
-            this.button_LayerUp.UseVisualStyleBackColor = true;
-            this.button_LayerUp.Click += new System.EventHandler(this.button_LayerUp_Click);
-            // 
-            // button_LayerDown
-            // 
-            this.button_LayerDown.Location = new System.Drawing.Point(234, 195);
-            this.button_LayerDown.Name = "button_LayerDown";
-            this.button_LayerDown.Size = new System.Drawing.Size(75, 23);
-            this.button_LayerDown.TabIndex = 9;
-            this.button_LayerDown.Text = "Down";
-            this.button_LayerDown.UseVisualStyleBackColor = true;
-            this.button_LayerDown.Click += new System.EventHandler(this.button_LayerDown_Click);
             // 
             // mapViewer
             // 
@@ -266,22 +277,11 @@
             this.tileBrowser1.Size = new System.Drawing.Size(389, 544);
             this.tileBrowser1.TabIndex = 0;
             // 
-            // button_EditLayer
-            // 
-            this.button_EditLayer.Location = new System.Drawing.Point(234, 67);
-            this.button_EditLayer.Name = "button_EditLayer";
-            this.button_EditLayer.Size = new System.Drawing.Size(155, 23);
-            this.button_EditLayer.TabIndex = 10;
-            this.button_EditLayer.Text = "Edit Layer";
-            this.button_EditLayer.UseVisualStyleBackColor = true;
-            this.button_EditLayer.Click += new System.EventHandler(this.button_EditLayer_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1457, 868);
-            this.Controls.Add(this.button_AddLayer);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);

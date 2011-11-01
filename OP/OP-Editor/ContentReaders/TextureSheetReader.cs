@@ -15,25 +15,27 @@ namespace OP_Editor.ContentReaders
         FileInfo _sheetFile;
         FileInfo _sheetDatFile;
         int _width, _height;
-        
 
         public TextureSheetReader()
         {
             
         }
-        public TextureSheet loadTextureSheet(FileInfo SheetFile)
+        public TextureSheet loadTextureSheet(FileInfo SheetFile, out int? TileWidth, out int? TileHeight)
         {
             this._sheetFile = SheetFile;
             if (searchTextureDatFile())
             {
                 buildTextureSheet();
+                TileWidth = _width;
+                TileHeight = _height;
                 return _textureSheet;
             }
             else
+            {
+                TileWidth = TileHeight = null;
                 return null;
-            
-        }
-
+            }
+        }        
         private void buildTextureSheet()
         {
             _textureSheet = new TextureSheet(_width, _height, Image.FromFile((_sheetFile.FullName),true));

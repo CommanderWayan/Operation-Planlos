@@ -39,6 +39,11 @@ namespace OP_Editor.Components
         public TileBrowser()
         {
             InitializeComponent();
+            #region double buffering
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.DoubleBuffer, true);
+            #endregion
         }
         /// <summary> 
         /// Clean up any resources being used.
@@ -49,12 +54,7 @@ namespace OP_Editor.Components
             {
                 if (components != null)
                 {
-                    components.Dispose();
-                    #region double buffering
-                    SetStyle(ControlStyles.UserPaint, true);
-                    SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-                    SetStyle(ControlStyles.DoubleBuffer, true);
-                    #endregion
+                    components.Dispose();                    
                 }
             }
             base.Dispose(disposing);

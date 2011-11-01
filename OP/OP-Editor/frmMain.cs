@@ -67,9 +67,42 @@ namespace OP_Editor
         }
         private void addTextureSheet(FileInfo SheetFile)
         {
-            TextureSheetReader tr = new TextureSheetReader();
-            TextureSheet ts = tr.loadTextureSheet(SheetFile);
-            tileBrowser1.setTextureSheet(ts,SheetFile.Name);
+            if (mapViewer.CurrentMap != null)
+            {
+                int? tilewidth;
+                int? tileheight;
+                TextureSheetReader tr = new TextureSheetReader();
+                TextureSheet ts = tr.loadTextureSheet(SheetFile, out tilewidth, out tileheight);
+                if (tileheight != null && tilewidth != null)
+                {
+                    if (mapViewer.CurrentMap.TileHeight == -1 && mapViewer.CurrentMap.TileWidth == -1)
+                    {
+                        //erstes laden - is noch kein texturesheet da!
+                        tileBrowser1.setTextureSheet(ts, SheetFile.Name);
+                        mapViewer.CurrentMap.SetTileDimensions((int)tilewidth, (int)tileheight);
+                    }
+                    else
+                    {
+                        if (mapViewer.CurrentMap.TileHeight == tileheight)
+                        {
+                            if (mapViewer.CurrentMap.TileWidth == tilewidth)
+                            {
+                                tileBrowser1.setTextureSheet(ts, SheetFile.Name);
+                                mapViewer.CurrentMap.SetTileDimensions((int)tilewidth, (int)tileheight);
+                            }
+                            else
+                                MessageBox.Show("The width of the loaded tiles does not match previously loaded texturesheet dimensions!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                            MessageBox.Show("The height of the loaded tiles does not match previously loaded texturesheet dimensions!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("You cannot add a Texturesheet without generating a map first!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            }
         }
 
         private void button_LayerUp_Click(object sender, EventArgs e)

@@ -13,8 +13,8 @@ namespace OP_Editor.Map
         int _baseLayerHeight;
         float _baseParallaxValueVert;
         float _baseParallaxValueHorz;
-        int _tileWidth;
-        int _tileHeight;
+        int _tileWidth = -1;
+        int _tileHeight = -1;
         string _name;
 
         bool enableBaseLayerModification = false;        
