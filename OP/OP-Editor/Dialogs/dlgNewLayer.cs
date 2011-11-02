@@ -21,11 +21,11 @@ namespace OP_Editor.Dialogs
 
         public enum NewType { Map, Layer, EditMap, EditLayer }
 
-        public int MapWidth { get { return this._mapWidth; } }
-        public int MapHeight { get { return this._mapHeight; } }
-        public float ParaVert { get { return this._vertParallaxValue; } }
-        public float ParaHorz { get { return this._horzParallaxValue; } }
-        public string Label { get { return this._name; } }
+        public int MapWidth { get { return this._mapWidth; } set { textBox_MapWidth.Text = value.ToString(); } }
+        public int MapHeight { get { return this._mapHeight; } set { textBox_MapHeight.Text = value.ToString(); } }
+        public float ParaVert { get { return this._vertParallaxValue; } set { textBox_ParallaxVert.Text = value.ToString(); } }
+        public float ParaHorz { get { return this._horzParallaxValue; } set { textBox_ParallaxHorz.Text = value.ToString(); } }
+        public string Label { get { return this._name; } set { textBox_Name.Text = value.ToString(); } }
 
         public dlgNewLayer(NewType Type)
         {

@@ -128,14 +128,23 @@ namespace OP_Editor
 
         private void button_EditLayer_Click(object sender, EventArgs e)
         {
-            //TODO: Layer editierbar machen
-            /*
-            Dialogs.dlgNewLayer dlgNewLayer = new Dialogs.dlgNewLayer(Dialogs.dlgNewLayer.NewType.EditLayer);
-            
-            if (dlgNewLayer.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+           //Baselayer nicht!
+            if (listBox_Layers.SelectedIndex != 0)
             {
+                Dialogs.dlgNewLayer dlgNewLayer = new Dialogs.dlgNewLayer(Dialogs.dlgNewLayer.NewType.EditLayer);
+
+                dlgNewLayer.MapHeight = mapViewer.CurrentMap.Layers[listBox_Layers.SelectedIndex].Height;
+                dlgNewLayer.MapWidth = mapViewer.CurrentMap.Layers[listBox_Layers.SelectedIndex].Width;
+                dlgNewLayer.ParaHorz = mapViewer.CurrentMap.Layers[listBox_Layers.SelectedIndex].ParallaxValueVertical / mapViewer.CurrentMap.BaseParallaxValueVertical;
+                dlgNewLayer.ParaVert = mapViewer.CurrentMap.Layers[listBox_Layers.SelectedIndex].ParallaxValueHorizontal / mapViewer.CurrentMap.BaseParallaxValueHorizontal;
+                dlgNewLayer.Label = mapViewer.CurrentMap.Layers[listBox_Layers.SelectedIndex].Name;
+
+                if (dlgNewLayer.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    mapViewer.CurrentMap.ModifyLayer(listBox_Layers.SelectedIndex, dlgNewLayer.Label, dlgNewLayer.MapWidth, dlgNewLayer.MapHeight, dlgNewLayer.ParaVert, dlgNewLayer.ParaHorz);
+                    refreshLayersDisplay();
+                }
             }
-             * */
         }
 
         

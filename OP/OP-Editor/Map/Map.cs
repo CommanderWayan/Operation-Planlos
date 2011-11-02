@@ -32,6 +32,8 @@ namespace OP_Editor.Map
         }
 
         public int LayerCount { get { return this._layers.Count; } }
+        public float BaseParallaxValueVertical { get { return this._baseParallaxValueVert; } }
+        public float BaseParallaxValueHorizontal { get { return this._baseParallaxValueHorz; } }
         public List<MapLayer> Layers { get { return this._layers; } }
         public MapLayer BaseLayer { get { return this._layers[0]; } }
         public string Name 
@@ -69,6 +71,14 @@ namespace OP_Editor.Map
         public void AddLayer(string Name, int XTiles, int YTiles, float ParallaxFactorVert, float ParallaxFactorHorz)
         {
             _layers.Add(new MapLayer(Name, XTiles, YTiles, _baseParallaxValueVert * ParallaxFactorVert, _baseParallaxValueHorz * ParallaxFactorHorz));            
+        }
+        public void ModifyLayer(int LayerIndex, string Name, int Width, int Height, float ParallaxFactorVert, float ParallaxFactorHorz)
+        {
+            _layers[LayerIndex].Name = Name;
+            _layers[LayerIndex].Width = Width;
+            _layers[LayerIndex].Height = Height;
+            _layers[LayerIndex].ParallaxValueVertical = ParallaxFactorVert * _baseParallaxValueVert;
+            _layers[LayerIndex].ParallaxValueHorizontal = ParallaxFactorHorz * _baseParallaxValueHorz;
         }
         public void RemoveLayer(int Index)
         {
