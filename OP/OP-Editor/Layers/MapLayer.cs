@@ -82,8 +82,21 @@ namespace OP_Editor.Layers
         }
         public override string ToString()
         {
-            return _tilemap.GetLength(0) + " X " + _tilemap.GetLength(1) + "(H"+_parallaxValueHorz + ",V"+_parallaxValueVert+")" + " - " + _name;
+            return _tilemap.GetLength(0) + " X " + _tilemap.GetLength(1) + "(H" + _parallaxValueHorz + ",V" + _parallaxValueVert + ")" + " - " + _name;
         }
-        
+
+        public void Draw(Graphics gfx)
+        {
+        }
+        public void DrawGrid(Graphics gfx, int TileWidth, int TileHeight)
+        {
+            for (int x = 0; x < _tilemap.GetLength(0); x++)
+            {
+                for (int y = 0; y < _tilemap.GetLength(1); y++)
+                {
+                    gfx.DrawRectangle(new Pen(new SolidBrush(Color.FromArgb(128, 0, 0, 255))), new Rectangle(x * TileWidth, y * TileHeight, TileWidth - 1, TileHeight - 1));
+                }
+            }
+        }
     }
 }

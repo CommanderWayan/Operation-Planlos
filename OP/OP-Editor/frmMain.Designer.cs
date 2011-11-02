@@ -42,12 +42,12 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.button_AddLayer = new System.Windows.Forms.Button();
             this.button_EditLayer = new System.Windows.Forms.Button();
             this.button_LayerDown = new System.Windows.Forms.Button();
             this.button_LayerUp = new System.Windows.Forms.Button();
             this.button_RemoveLayer = new System.Windows.Forms.Button();
             this.listBox_Layers = new System.Windows.Forms.ListBox();
-            this.button_AddLayer = new System.Windows.Forms.Button();
             this.mapViewer = new OP_Editor.Components.MapViewer();
             this.tileBrowser1 = new OP_Editor.Components.TileBrowser();
             this.menuStrip1.SuspendLayout();
@@ -198,6 +198,16 @@
             this.toolStripButton3.Size = new System.Drawing.Size(22, 20);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
+            // button_AddLayer
+            // 
+            this.button_AddLayer.Location = new System.Drawing.Point(234, 9);
+            this.button_AddLayer.Name = "button_AddLayer";
+            this.button_AddLayer.Size = new System.Drawing.Size(155, 23);
+            this.button_AddLayer.TabIndex = 5;
+            this.button_AddLayer.Text = "Add Layer";
+            this.button_AddLayer.UseVisualStyleBackColor = true;
+            this.button_AddLayer.Click += new System.EventHandler(this.button_AddLayer_Click);
+            // 
             // button_EditLayer
             // 
             this.button_EditLayer.Location = new System.Drawing.Point(234, 67);
@@ -245,16 +255,7 @@
             this.listBox_Layers.Name = "listBox_Layers";
             this.listBox_Layers.Size = new System.Drawing.Size(222, 238);
             this.listBox_Layers.TabIndex = 4;
-            // 
-            // button_AddLayer
-            // 
-            this.button_AddLayer.Location = new System.Drawing.Point(234, 9);
-            this.button_AddLayer.Name = "button_AddLayer";
-            this.button_AddLayer.Size = new System.Drawing.Size(155, 23);
-            this.button_AddLayer.TabIndex = 5;
-            this.button_AddLayer.Text = "Add Layer";
-            this.button_AddLayer.UseVisualStyleBackColor = true;
-            this.button_AddLayer.Click += new System.EventHandler(this.button_AddLayer_Click);
+            this.listBox_Layers.SelectedIndexChanged += new System.EventHandler(this.listBox_Layers_SelectedIndexChanged);
             // 
             // mapViewer
             // 
@@ -262,6 +263,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.mapViewer.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.mapViewer.Grid = true;
             this.mapViewer.Location = new System.Drawing.Point(7, 3);
             this.mapViewer.Name = "mapViewer";
             this.mapViewer.Size = new System.Drawing.Size(1018, 788);
@@ -287,6 +289,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

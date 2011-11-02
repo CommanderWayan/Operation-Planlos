@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using OP_Editor.Layers;
 using System.Collections;
+using System.Drawing;
 
 namespace OP_Editor.Map
 {
@@ -153,10 +154,15 @@ namespace OP_Editor.Map
                     _layers[IndexOfLayer - 1] = temp;
                 }
             }
-        }        
-        public void draw()
+        }
+        public int ActiveLayer { get; set; }
+        public void Draw()
         {
             //TODO: draw
+        }
+        public void DrawGrid(Graphics gfx)
+        {
+            _layers[ActiveLayer].DrawGrid(gfx, _tileWidth, _tileHeight);
         }
     }
 }
