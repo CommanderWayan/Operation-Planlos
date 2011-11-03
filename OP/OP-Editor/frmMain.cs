@@ -167,6 +167,12 @@ namespace OP_Editor
             mapViewer.CurrentMap.ActiveLayer = Index;
         }
 
+        private void gridToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gridToolStripMenuItem.Checked = !gridToolStripMenuItem.Checked;
+            mapViewer.Grid = gridToolStripMenuItem.Checked;
+        }
+
 
 
 

@@ -11,10 +11,10 @@ namespace OP_Editor.Components
 {
     public partial class MapViewer : System.Windows.Forms.UserControl
     {
-        private int _tileHeight = 10;
-        private int _tileWidth = 10;
+        private int _tileHeight;
+        private int _tileWidth;
         private Map.Map _map;
-        private bool _grid = true;
+        private bool _grid = false;
 
         public MapViewer()
         {
@@ -58,6 +58,14 @@ namespace OP_Editor.Components
             this._map = Map;            
         }
         public Map.Map CurrentMap { get { return this._map; } }
-        public bool Grid { get { return this._grid; } set { this._grid = value; } }
+        public bool Grid 
+        { 
+            get { return this._grid; } 
+            set 
+            { 
+                this._grid = value;
+                PaintAll();
+            } 
+        }
     }
 }

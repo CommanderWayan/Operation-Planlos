@@ -35,9 +35,11 @@
             this.addTexturesheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogTextureSheet = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tileBrowser1 = new OP_Editor.Components.TileBrowser();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.mapViewer = new OP_Editor.Components.MapViewer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -48,8 +50,8 @@
             this.button_LayerUp = new System.Windows.Forms.Button();
             this.button_RemoveLayer = new System.Windows.Forms.Button();
             this.listBox_Layers = new System.Windows.Forms.ListBox();
-            this.mapViewer = new OP_Editor.Components.MapViewer();
-            this.tileBrowser1 = new OP_Editor.Components.TileBrowser();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -65,7 +67,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1457, 24);
@@ -109,6 +112,16 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tile Browser";
+            // 
+            // tileBrowser1
+            // 
+            this.tileBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tileBrowser1.Location = new System.Drawing.Point(6, 19);
+            this.tileBrowser1.Name = "tileBrowser1";
+            this.tileBrowser1.Size = new System.Drawing.Size(389, 544);
+            this.tileBrowser1.TabIndex = 0;
             // 
             // statusStrip1
             // 
@@ -158,6 +171,18 @@
             this.toolStripContainer1.Size = new System.Drawing.Size(1052, 822);
             this.toolStripContainer1.TabIndex = 10;
             this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // mapViewer
+            // 
+            this.mapViewer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.mapViewer.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.mapViewer.Grid = false;
+            this.mapViewer.Location = new System.Drawing.Point(7, 3);
+            this.mapViewer.Name = "mapViewer";
+            this.mapViewer.Size = new System.Drawing.Size(1018, 788);
+            this.mapViewer.TabIndex = 5;
             // 
             // toolStrip1
             // 
@@ -257,27 +282,20 @@
             this.listBox_Layers.TabIndex = 4;
             this.listBox_Layers.SelectedIndexChanged += new System.EventHandler(this.listBox_Layers_SelectedIndexChanged);
             // 
-            // mapViewer
+            // viewToolStripMenuItem
             // 
-            this.mapViewer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.mapViewer.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.mapViewer.Grid = true;
-            this.mapViewer.Location = new System.Drawing.Point(7, 3);
-            this.mapViewer.Name = "mapViewer";
-            this.mapViewer.Size = new System.Drawing.Size(1018, 788);
-            this.mapViewer.TabIndex = 5;
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gridToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.viewToolStripMenuItem.Text = "View";
             // 
-            // tileBrowser1
+            // gridToolStripMenuItem
             // 
-            this.tileBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tileBrowser1.Location = new System.Drawing.Point(6, 19);
-            this.tileBrowser1.Name = "tileBrowser1";
-            this.tileBrowser1.Size = new System.Drawing.Size(389, 544);
-            this.tileBrowser1.TabIndex = 0;
+            this.gridToolStripMenuItem.Name = "gridToolStripMenuItem";
+            this.gridToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gridToolStripMenuItem.Text = "Grid";
+            this.gridToolStripMenuItem.Click += new System.EventHandler(this.gridToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -333,6 +351,8 @@
         private System.Windows.Forms.Button button_LayerDown;
         private System.Windows.Forms.Button button_LayerUp;
         private System.Windows.Forms.Button button_EditLayer;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gridToolStripMenuItem;
 	}
 }
 
